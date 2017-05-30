@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Button';
+import ListShowcaseItem from '../ListShowcaseItem';
 import './style.css';
 
 const ListShowcase = ({ lists }) => (
-  <ul className="ListShowcase">
-    {lists.map(({ id, title }) => (
-      <li key={id} className="ListShowcase__Item">
-        <h3>{title}</h3>
-      </li>
-    ))}
-  </ul>
+  <div className="ListShowcase">
+    <div className="ListShowcase__List">
+      {lists.map(({ id, title }) => (
+        <ListShowcaseItem title={title} listId={id} key={id} />
+      ))}
+    </div>
+    <div className="ListShowcase__ButtonContainer">
+      <Button>Add new</Button>
+    </div>
+  </div>
 );
 
 ListShowcase.propTypes = {
