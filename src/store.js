@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
+import rootReducer from './reducers';
 
 const devTools = process.env.NODE_ENV === 'development' ? compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(logger),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 ) : null;
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
 };
 
 export default createStore(
-  v => v,
+  rootReducer,
   initialState,
   devTools,
 );
