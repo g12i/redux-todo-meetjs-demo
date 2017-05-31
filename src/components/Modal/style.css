@@ -1,3 +1,10 @@
+.Modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
 .Modal__Background {
   position: fixed;
   left: 0;
@@ -18,4 +25,7 @@
 .Modal__ContentWrapper {
   z-index: 1;  
   position: relative;
+  display: flex;
+  min-height: 100vh;
+  padding: 2rem;
 }
