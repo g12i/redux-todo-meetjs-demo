@@ -13,12 +13,17 @@ describe('<ListShowcase />', () => {
       {
         id: '#1',
         title: 'List #1',
+        todos: [],
       },
       {
         id: '#2',
         title: 'List #2',
+        todos: [
+          { id: '#1', content: 'Todo #1', completed: false }
+        ]
       },
     ],
+    onClickList: () => { },
   };
 
   it('renders two <ListShowcaseItem /> components', () => {
