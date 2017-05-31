@@ -24,6 +24,6 @@
 }
 
 .ListShowcaseItem__Todo--Completed .ListShowcaseItem__TodoContent {
-  color: #999;
+  color: #717171;
   text-decoration: line-through;
 }
