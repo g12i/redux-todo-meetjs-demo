@@ -16,7 +16,8 @@
 
 .Modal__Content {
   position: relative;
-  max-width: 30rem;
+  width: 100%;
+  max-width: 35rem;
   background: white;
   margin: auto auto;
   padding: 2rem;
