@@ -12,3 +12,18 @@
   padding: 1rem;
   pointer-events: none;
 }
+
+.ListShowcaseItem__Todo {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ListShowcaseItem__TodoContent {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.ListShowcaseItem__Todo--Completed .ListShowcaseItem__TodoContent {
+  color: #999;
+  text-decoration: line-through;
+}

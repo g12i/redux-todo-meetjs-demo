@@ -7,8 +7,8 @@ import './style.css';
 const ListShowcase = ({ lists }) => (
   <div className="ListShowcase">
     <div className="ListShowcase__List">
-      {lists.map(({ id, title }) => (
-        <ListShowcaseItem title={title} listId={id} key={id} />
+      {lists.map(props => (
+        <ListShowcaseItem key={props.id} {...props} />
       ))}
     </div>
     <div className="ListShowcase__ButtonContainer">
