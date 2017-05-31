@@ -1,0 +1,52 @@
+.ListPreview {
+  display: block;
+}
+
+.ListPreview__Todo {
+  display: flex;
+  margin-bottom: 0.25rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ListPreview__TodoInput {
+  border: none;
+  width: 100%;
+  margin-left: 0.5rem;
+  outline: none;
+  height: 1.5rem;
+}
+
+.ListPreview__Todo--Completed .ListPreview__TodoInput {
+  color: #717171;
+  text-decoration: line-through;
+}
+
+.ListPreview__TitleInput {
+  border: none;
+  display: block;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  height: 2rem;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.ListPreview__TodoNew,
+.ListPreview__TodoCheckbox {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  margin: 0;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.ListPreview__TodoNew {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #757575;
+}
