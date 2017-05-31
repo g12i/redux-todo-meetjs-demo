@@ -1,9 +1,9 @@
 .ListShowcaseItem {
   break-inside: avoid;
   text-decoration: none;
-  margin-bottom: 2rem;
   cursor: pointer;
   display: block;
+  padding: 0 1rem 2rem;
 }
 
 .ListShowcaseItem__Content {
