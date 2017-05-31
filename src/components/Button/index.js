@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const Button = ({ children, onClick }) => (
+const resolveClassName = theme => `Button Button--${theme}`;
+
+const Button = ({ children, onClick, theme }) => (
   <button
-    className="Button"
+    className={resolveClassName(theme)}
     onClick={onClick}
   >
     {children}
@@ -14,10 +16,12 @@ const Button = ({ children, onClick }) => (
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  theme: PropTypes.oneOf(['default', 'blue']),
 };
 
 Button.defaultProps = {
   onClick: v => v,
+  theme: 'default',
 }
 
 export default Button;

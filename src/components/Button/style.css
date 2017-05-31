@@ -4,8 +4,8 @@
   color: #555;
   text-align: center;
   font-family: 'Catamaran', sans-serif;
-  font-size: .867rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 400;
   text-transform: uppercase;
   text-decoration: none;
   background-color: transparent;
@@ -13,10 +13,23 @@
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box;
+  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.18s all;
 }
 
 .Button:hover {
   color: #333;
   border-color: #888;
   outline: 0;
+}
+
+.Button--blue {
+  background-color: #1c6ef2;
+  border-color: #1c6ef2;
+  color: #fff;
+}
+
+.Button--blue:hover {
+  background-color: #0d5dde;
+  border-color: #0d5dde;
+  color: #fff;
 }
