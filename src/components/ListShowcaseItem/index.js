@@ -13,23 +13,20 @@ const ListShowcaseItem = ({ title, listId, todos, onClick }) => {
   const uncompletedToDisplay = Math.min(THRESHOLD, uncompleted.length);
   const completedToDisplay = Math.min(THRESHOLD - uncompletedToDisplay, completed.length);
 
+  const Todo = ({ completed, content, id }) => (
+    <label className={`ListShowcaseItem__Todo ListShowcaseItem__Todo--${(completed ? 'Completed' : 'UnCompleted')}`} key={id}>
+      <input type="checkbox" checked={completed} readOnly />
+      <span className="ListShowcaseItem__TodoContent">{content}</span>
+    </label>
+  );
+
   return (
     <a className="ListShowcaseItem" onClick={onClick}>
       <div className="ListShowcaseItem__Content">
         <h3>{title}</h3>
         <div>
-          {uncompleted.filter((v, i) => i < uncompletedToDisplay).map(({ completed, content, id }) => (
-            <label className="ListShowcaseItem__Todo" key={id}>
-              <input type="checkbox" checked={completed} readOnly />
-              <span className="ListShowcaseItem__TodoContent">{content}</span>
-            </label>
-          ))}
-          {completed.filter((v, i) => i < completedToDisplay).map(({ completed, content, id }) => (
-            <label className="ListShowcaseItem__Todo ListShowcaseItem__Todo--Completed" key={id}>
-              <input type="checkbox" checked={completed} readOnly />
-              <span className="ListShowcaseItem__TodoContent">{content}</span>
-            </label>
-          ))}
+          {uncompleted.filter((v, i) => i < uncompletedToDisplay).map(Todo)}
+          {completed.filter((v, i) => i < completedToDisplay).map(Todo)}
           {hasMoreThanThreshold && <span className="ListShowcaseItem__HasMoreIndicator">...</span>}
         </div>
       </div>
