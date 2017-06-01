@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const THRESHOLD = 10;
+const THRESHOLD = 7;
 
 const ListShowcaseItem = ({ title, listId, todos, onClick }) => {
 
