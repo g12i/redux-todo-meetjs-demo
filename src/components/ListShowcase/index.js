@@ -4,15 +4,15 @@ import Button from '../Button';
 import ListShowcaseItem from '../ListShowcaseItem';
 import './style.css';
 
-const ListShowcase = ({ lists, onClickList }) => (
+const ListShowcase = ({ lists, onClickListItem, onClickAddNewList }) => (
   <div className="ListShowcase">
     <div className="ListShowcase__List">
       {lists.map(props => (
-        <ListShowcaseItem key={props.id} onClick={onClickList} {...props} />
+        <ListShowcaseItem key={props.id} onClick={onClickListItem} {...props} />
       ))}
     </div>
     <div className="ListShowcase__ButtonContainer">
-      <Button>Add new</Button>
+      <Button onClick={onClickAddNewList}>Add new</Button>
     </div>
   </div>
 );
@@ -22,7 +22,8 @@ ListShowcase.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
-  onClickList: PropTypes.func.isRequired,
+  onClickListItem: PropTypes.func.isRequired,
+  onClickAddNewList: PropTypes.func.isRequired,
 };
 
 export default ListShowcase;

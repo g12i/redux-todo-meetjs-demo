@@ -1,4 +1,5 @@
 import React from 'react';
+import sinon from 'sinon';
 import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 
@@ -23,7 +24,8 @@ describe('<ListShowcase />', () => {
         ]
       },
     ],
-    onClickList: () => { },
+    onClickListItem: () => { },
+    onClickAddNewList: () => { },
   };
 
   it('renders two <ListShowcaseItem /> components', () => {
@@ -33,12 +35,15 @@ describe('<ListShowcase />', () => {
     expect(wrapper.find(ListShowcaseItem)).to.have.lengthOf(2);
   });
 
-  it('renders "Add new" button', () => {
+  it('renders clikable "Add new" button', () => {
+    const onClickAddNewList = sinon.spy();
     const wrapper = mount(
-      <ListShowcase {...props} />
+      <ListShowcase {...props} onClickAddNewList={onClickAddNewList} />
     );
     expect(wrapper.find(Button)).to.have.lengthOf(1);
-    expect(wrapper.find(Button).text()).to.be.equal('Add new')
+    expect(wrapper.find(Button).text()).to.be.equal('Add new');
+    wrapper.find(Button).simulate('click')
+    expect(onClickAddNewList).to.have.property('callCount', 1);
   });
 
 });
