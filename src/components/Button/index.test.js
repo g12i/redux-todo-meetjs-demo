@@ -16,9 +16,9 @@ describe('<Button />', () => {
 
   it('renders with valid modifier in className', () => {
     const wrapper = shallow(
-      <Button theme="blue">Foo</Button>
+      <Button dark>Foo</Button>
     );
-    expect(wrapper.hasClass('Button--blue')).to.be.equal(true);
+    expect(wrapper.hasClass('Button--dark')).to.be.equal(true);
   });
 
   it('simulates click events', () => {

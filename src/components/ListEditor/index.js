@@ -46,7 +46,7 @@ const ListEditor = ({
       </div>
       <div className="ListEditor__Actions">
         <Button onClick={onRemoveList}>Remove</Button>
-        <Button theme="blue" onClick={onSaveList}>Save</Button>
+        <Button dark onClick={onSaveList}>Save</Button>
       </div>
     </div>
   )

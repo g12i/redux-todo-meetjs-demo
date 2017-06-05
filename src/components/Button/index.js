@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-const resolveClassName = theme => `Button Button--${theme}`;
+const resolveClassName = dark => `Button Button--${dark ? 'dark' : 'default'}`;
 
-const Button = ({ children, onClick, theme }) => (
-  <button className={resolveClassName(theme)} onClick={onClick}>
+const Button = ({ children, onClick, dark }) => (
+  <button className={resolveClassName(dark)} onClick={onClick}>
     {children}
   </button>
 );
@@ -13,12 +13,12 @@ const Button = ({ children, onClick, theme }) => (
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  theme: PropTypes.oneOf(['default', 'blue']),
+  dark: PropTypes.bool,
 };
 
 Button.defaultProps = {
   onClick: v => v,
-  theme: 'default',
+  dark: false,
 }
 
 export default Button;
