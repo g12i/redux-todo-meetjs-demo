@@ -5,10 +5,7 @@ import './style.css';
 const resolveClassName = theme => `Button Button--${theme}`;
 
 const Button = ({ children, onClick, theme }) => (
-  <button
-    className={resolveClassName(theme)}
-    onClick={onClick}
-  >
+  <button className={resolveClassName(theme)} onClick={onClick}>
     {children}
   </button>
 );
