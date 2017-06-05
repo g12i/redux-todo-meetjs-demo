@@ -23,7 +23,7 @@ describe('<ListShowcase />', () => {
         ]
       },
     ],
-    onClickList: () => { },
+    onClickListItem: () => { },
   };
 
   it('renders two <ListShowcaseItem /> components', () => {
