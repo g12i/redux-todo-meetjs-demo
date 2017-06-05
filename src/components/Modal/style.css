@@ -1,0 +1,32 @@
+.Modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.Modal__Background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.25);
+}
+
+.Modal__Content {
+  position: relative;
+  width: 100%;
+  max-width: 35rem;
+  background: white;
+  margin: auto auto;
+  padding: 2rem;
+}
+
+.Modal__ContentWrapper {
+  z-index: 1;  
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  padding: 2rem;
+}

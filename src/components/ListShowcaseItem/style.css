@@ -1,0 +1,36 @@
+.ListShowcaseItem {
+  break-inside: avoid;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 0 1rem 2rem;
+}
+
+.ListShowcaseItem__Content {
+  border: solid 1px #ddd;
+  box-shadow: 0 2px 3px -1px rgba(0,0,0,.2);
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.ListShowcaseItem__Todo {
+  display: block;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.ListShowcaseItem__TodoContent {
+  display: block;
+  margin-left: 0.5rem;
+}
+
+.ListShowcaseItem__Todo--Completed .ListShowcaseItem__TodoContent {
+  color: #717171;
+  text-decoration: line-through;
+}
+
+.ListShowcaseItem__Todo .Icon {
+  width: 1rem;
+  height: 1rem;
+}

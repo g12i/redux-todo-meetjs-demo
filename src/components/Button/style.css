@@ -1,0 +1,40 @@
+.Button {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  color: #555;
+  text-align: center;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+.Button--default {
+  transition: ease-out 0.18s all;
+  color: #000;
+  border-color: #000;
+}
+
+.Button--default:hover {
+  border-color: #2d2d2d;
+  color: #000;
+}
+
+.Button--dark {
+  transition: ease-out 0.18s all;
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.Button--dark:hover {
+  background-color: #2d2d2d;
+  border-color: #2d2d2d;
+}

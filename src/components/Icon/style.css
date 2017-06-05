@@ -1,0 +1,11 @@
+.Icon {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.Icon img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,12 @@
+.Checkbox input {
+  display: none;
+}
+
+.Checkbox {
+  transition: 0.18s ease-out opacity;
+  opacity: 0.4;
+}
+
+.Checkbox:hover {
+  opacity: 1;
+}

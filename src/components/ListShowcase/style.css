@@ -1,0 +1,28 @@
+.ListShowcase__List {
+  margin: 2rem 0 0;
+  padding: 0;
+  column-count: 1;
+  column-gap: 0;
+}
+
+@media(min-width: 480px) {
+  .ListShowcase__List {
+    column-count: 2;
+  }  
+}
+
+@media(min-width: 768px) {
+  .ListShowcase__List {
+    column-count: 3;
+  }  
+}
+
+@media(min-width: 996px) {
+  .ListShowcase__List {
+    column-count: 4;
+  }  
+}
+
+.ListShowcase__ButtonContainer {
+  text-align: center;
+}
