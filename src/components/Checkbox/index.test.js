@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Checkbox from '../Checkbox';
-import Icon, { check, cancel } from '../Icon';
+import Icon, { check, box } from '../Icon';
 
 describe('<Checkbox />', () => {
 
@@ -22,7 +22,7 @@ describe('<Checkbox />', () => {
       <Checkbox checked={false} onChange={noop} />
     );
     expect(wrapper.find(Icon)).to.have.lengthOf(1);
-    expect(wrapper.find(Icon).prop('icon')).to.be.equal(cancel);
+    expect(wrapper.find(Icon).prop('icon')).to.be.equal(box);
   });
 
   it('renders the input', () => {
