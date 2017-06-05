@@ -1,6 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Button from '../Button';
 import ListShowcase from '../ListShowcase';
@@ -34,11 +34,11 @@ describe('<ListShowcase />', () => {
   });
 
   it('renders "Add new" button', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <ListShowcase {...props} />
     );
     expect(wrapper.find(Button)).to.have.lengthOf(1);
-    expect(wrapper.find(Button).text()).to.be.equal('Add new')
+    expect(wrapper.find(Button).prop('children')).to.be.equal('Add new')
   });
 
 });
