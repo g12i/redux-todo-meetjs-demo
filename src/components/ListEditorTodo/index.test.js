@@ -1,9 +1,11 @@
 import React from 'react';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import ListEditorTodo from '../ListEditorTodo';
+import Checkbox from '../Checkbox';
+import Button from '../Button';
 
 describe('<ListEditorTodo />', () => {
 
@@ -14,6 +16,7 @@ describe('<ListEditorTodo />', () => {
     id: 'id',
     onChangeTodoContent: noop,
     onChangeTodoCompletionStatus: noop,
+    onClickRemoveTodo: noop,
   };
 
   it('set proper modifier to it\'s container', () => {
@@ -35,12 +38,12 @@ describe('<ListEditorTodo />', () => {
     expect(wrapper.find('input[type="text"]').prop('value')).to.be.equal(props.content);
   });
 
-  it('set renders checkbox with correct state', () => {
+  it('set renders Checkbox with correct state', () => {
     const wrapper = shallow(
       <ListEditorTodo {...props} />
     );
-    expect(wrapper.find('input[type="checkbox"]')).to.have.lengthOf(1);
-    expect(wrapper.find('input[type="checkbox"]').prop('checked')).to.be.false;
+    expect(wrapper.find(Checkbox)).to.have.lengthOf(1);
+    expect(wrapper.find(Checkbox).prop('checked')).to.be.false;
   });
 
   it('calls #onChangeTodoContent when input is changed', () => {
@@ -48,21 +51,33 @@ describe('<ListEditorTodo />', () => {
     const wrapper = shallow(
       <ListEditorTodo {...props} onChangeTodoContent={onChangeTodoContent} />
     );
-    const input = wrapper.find('input[type="text"]');
-    input.simulate('change', { target: { value: 'new content' } });
+    const $input = wrapper.find('input[type="text"]');
+    $input.simulate('change', { target: { value: 'new content' } });
     expect(onChangeTodoContent.callCount).to.be.equal(1);
     expect(onChangeTodoContent.calledWithMatch('id', 'new content')).to.be.true;
   });
 
   it('calls #onChangeTodoCompletionStatus when input is changed', () => {
     const onChangeTodoCompletionStatus = sinon.spy();
-    const wrapper = shallow(
+    const wrapper = mount(
       <ListEditorTodo {...props} onChangeTodoCompletionStatus={onChangeTodoCompletionStatus} />
     );
-    const input = wrapper.find('input[type="checkbox"]');
-    input.simulate('change');
+    const $input = wrapper.find('input[type="checkbox"]');
+    $input.simulate('change');
     expect(onChangeTodoCompletionStatus.callCount).to.be.equal(1);
     expect(onChangeTodoCompletionStatus.calledWithMatch('id')).to.be.true;
+  });
+
+  it('set renders remove Button', () => {
+    const onClickRemoveTodo = sinon.spy();
+    const wrapper = shallow(
+      <ListEditorTodo {...props} onClickRemoveTodo={onClickRemoveTodo} />
+    );
+    const $button = wrapper.find(Button);
+    expect($button).to.have.lengthOf(1);
+    $button.simulate('click');
+    expect(onClickRemoveTodo.callCount).to.be.equal(1);
+    expect(onClickRemoveTodo.calledWithMatch('id')).to.be.true;
   });
 
 });
