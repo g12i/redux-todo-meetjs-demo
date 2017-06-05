@@ -7,9 +7,7 @@ import './style.css';
 const ListShowcase = ({ lists, onClickListItem, onClickAddNewList }) => (
   <div className="ListShowcase">
     <div className="ListShowcase__List">
-      {lists.map(props => (
-        <ListShowcaseItem key={props.id} onClick={onClickListItem} {...props} />
-      ))}
+      {lists.map(props => <ListShowcaseItem key={props.id} onClick={onClickListItem} {...props} />)}
     </div>
     <div className="ListShowcase__ButtonContainer">
       <Button onClick={onClickAddNewList}>Add new</Button>

@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
+import Checkbox from '../Checkbox';
+
 const THRESHOLD = 7;
 
-const ListShowcaseItem = ({ title, listId, todos, onClick }) => {
-
+const ListShowcaseItem = ({ title, id, todos, onClick }) => {
   const hasMoreThanThreshold = todos.length > THRESHOLD;
   const uncompleted = todos.filter(({ completed }) => !completed);
   const completed = todos.filter(({ completed }) => completed);
@@ -14,10 +15,10 @@ const ListShowcaseItem = ({ title, listId, todos, onClick }) => {
   const completedToDisplay = Math.min(THRESHOLD - uncompletedToDisplay, completed.length);
 
   const Todo = ({ completed, content, id }) => (
-    <label className={`ListShowcaseItem__Todo ListShowcaseItem__Todo--${(completed ? 'Completed' : 'UnCompleted')}`} key={id}>
-      <input type="checkbox" checked={completed} readOnly />
+    <div className={`ListShowcaseItem__Todo ListShowcaseItem__Todo--${(completed ? 'Completed' : 'UnCompleted')}`}>
+      <Checkbox checked={completed} readOnly />
       <span className="ListShowcaseItem__TodoContent">{content}</span>
-    </label>
+    </div>
   );
 
   return (
@@ -25,8 +26,8 @@ const ListShowcaseItem = ({ title, listId, todos, onClick }) => {
       <div className="ListShowcaseItem__Content">
         <h3>{title}</h3>
         <div>
-          {uncompleted.filter((v, i) => i < uncompletedToDisplay).map(Todo)}
-          {completed.filter((v, i) => i < completedToDisplay).map(Todo)}
+          {uncompleted.filter((v, i) => i < uncompletedToDisplay).map(todo => <Todo key={todo.id} {...todo} />)}
+          {completed.filter((v, i) => i < completedToDisplay).map(todo => <Todo key={todo.id} {...todo} />)}
           {hasMoreThanThreshold && <span className="ListShowcaseItem__HasMoreIndicator">...</span>}
         </div>
       </div>
