@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 
 import Button from '../Button';
 import ListShowcase from '../ListShowcase';
-import ListShowcaseItem from '../ListShowcaseItem';
+import ListEditor from '../ListEditor';
 
 describe('<ListShowcase />', () => {
 
@@ -28,11 +28,11 @@ describe('<ListShowcase />', () => {
     onClickAddNewList: () => { },
   };
 
-  it('renders two <ListShowcaseItem /> components', () => {
+  it('renders two <ListEditor /> components', () => {
     const wrapper = shallow(
       <ListShowcase {...props} />
     );
-    expect(wrapper.find(ListShowcaseItem)).to.have.lengthOf(2);
+    expect(wrapper.find(ListEditor)).to.have.lengthOf(2);
   });
 
   it('renders clikable "Add new" button', () => {

@@ -55,7 +55,7 @@
 .ListEditor__Actions {
   border-top: solid 1px #bbb;
   padding-top: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   justify-content: space-between;
   display: flex;
 }
