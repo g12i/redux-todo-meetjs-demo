@@ -11,11 +11,7 @@ const ListEditor = ({
   todos,
   onChangeListTitle,
   onRemoveList,
-  onSaveList,
-  onChangeTodoCompletionStatus,
-  onChangeTodoContent,
   onAddTodo,
-  onRemoveTodo,
    }) => {
   const uncompleted = todos.filter(({ completed }) => !completed);
   const completed = todos.filter(({ completed }) => completed);
@@ -25,7 +21,7 @@ const ListEditor = ({
     }
   };
 
-  const AddTodo = (
+  const NewTodoInput = (
     <div className="ListEditor__Todo ListEditor__Todo--New">
       <input className="ListEditor__TodoInput" type="text" placeholder="Add new" onKeyDown={handleKeyDownOnNewTodo} />
     </div>
@@ -35,17 +31,12 @@ const ListEditor = ({
     <div className="ListEditor">
       <input type="text" className="ListEditor__TitleInput" onChange={e => onChangeListTitle(e.target.value)} value={title} />
       <div>
-        {AddTodo}
-        {uncompleted
-          .map(todo => ({ ...todo, onChangeTodoCompletionStatus, onChangeTodoContent, onClickRemoveTodo: onRemoveTodo }))
-          .map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
-        {completed
-          .map(todo => ({ ...todo, onChangeTodoCompletionStatus, onChangeTodoContent, onClickRemoveTodo: onRemoveTodo }))
-          .map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
+        {NewTodoInput}
+        {uncompleted.map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
+        {completed.map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
       </div>
       <div className="ListEditor__Actions">
-        <Button onClick={() => onRemoveList(id)}>Remove</Button>
-        <Button dark onClick={() => onSaveList(id)}>Save</Button>
+        <Button dark onClick={() => onRemoveList(id)}>Remove</Button>
       </div>
     </div>
   )
@@ -61,11 +52,7 @@ ListEditor.propTypes = {
   })).isRequired,
   onChangeListTitle: PropTypes.func.isRequired,
   onRemoveList: PropTypes.func.isRequired,
-  onSaveList: PropTypes.func.isRequired,
-  onChangeTodoCompletionStatus: PropTypes.func.isRequired,
-  onChangeTodoContent: PropTypes.func.isRequired,
   onAddTodo: PropTypes.func.isRequired,
-  onRemoveTodo: PropTypes.func.isRequired,
 };
 
 export default ListEditor;
