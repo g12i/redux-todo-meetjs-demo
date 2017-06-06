@@ -4,12 +4,12 @@ const ADD_LIST = 'lists/ADD';
 const REMOVE_LIST = 'lists/REMOVE';
 const CHANGE_LIST_TITLE = 'lists/CHANGE_TITLE';
 
-export const addList = () => ({
+export const addList = (title = '') => ({
   type: ADD_LIST,
   payload: {
-    title: '',
     id: uuid(),
     date: Number(new Date()),
+    title,
   }
 });
 
