@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import { removeTodo, toggleTodoCompletion, changeTodoContent } from '../../reducers/todos';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
 import Icon, { minus } from '../Icon';
@@ -29,4 +30,11 @@ ListEditorTodo.propTypes = {
   onClickRemoveTodo: PropTypes.func.isRequired,
 };
 
-export default ListEditorTodo;
+export default connect(
+  null,
+  (dispatch, ownProps) => ({
+    onChangeTodoContent: e => dispatch(changeTodoContent({ id: ownProps.id, content: e.target.value })),
+    onChangeTodoCompletionStatus: () => dispatch(toggleTodoCompletion(ownProps.id)),
+    onClickRemoveTodo: () => dispatch(removeTodo(ownProps.id)),
+  })
+)(ListEditorTodo);

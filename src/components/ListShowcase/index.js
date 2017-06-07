@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Button from '../Button';
 import ListEditor from '../ListEditor';
+import { addList } from '../../reducers/lists';
 import './style.css';
 
 const ListShowcase = ({ lists, onClickAddNewList }) => (
@@ -29,4 +31,7 @@ ListShowcase.propTypes = {
   onClickAddNewList: PropTypes.func.isRequired,
 };
 
-export default ListShowcase;
+export default connect(
+  state => ({ lists: state.lists }),
+  dispatch => ({ onClickAddNewList: () => dispatch(addList('TODO')) })
+)(ListShowcase);
