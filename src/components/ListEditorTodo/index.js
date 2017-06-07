@@ -14,9 +14,9 @@ const ListEditorTodo = ({
   onClickRemoveTodo
    }) => (
     <div className={`ListEditor__Todo ListEditor__Todo--${(completed ? 'Completed' : 'UnCompleted')}`} key={id}>
-      <Checkbox checked={completed} onChange={() => onChangeTodoCompletionStatus(id)} />
-      <input className="ListEditor__TodoInput" type="text" value={content} onChange={e => onChangeTodoContent(id, e.target.value)} />
-      <Button onClick={() => onClickRemoveTodo(id)}><Icon icon={minus} alt="-" /></Button>
+      <Checkbox checked={completed} onChange={onChangeTodoCompletionStatus} />
+      <input className="ListEditor__TodoInput" type="text" value={content} onChange={onChangeTodoContent} />
+      <Button onClick={onClickRemoveTodo}><Icon icon={minus} alt="-" /></Button>
     </div>
   );
 
