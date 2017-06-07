@@ -60,7 +60,7 @@ class ListEditor extends Component {
           <Button dark onClick={onRemoveList}>Remove</Button>
         </div>
       </div >
-    )
+    );
   }
 
   createRef = key => ref => this[key] = ref;
