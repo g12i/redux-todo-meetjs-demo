@@ -5,6 +5,7 @@
 .Checkbox {
   transition: 0.18s ease-out opacity;
   opacity: 0.4;
+  cursor: pointer;
 }
 
 .Checkbox:hover {
