@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Button from '../Button';
+
 import { addTodo } from '../../reducers/todos';
 import { removeList, changeListTitle } from '../../reducers/lists';
+
+import Button from '../Button';
+import ListEditorTodo from '../ListEditorTodo';
+import Icon, { cancel } from '../Icon';
 import './style.css';
 
-import ListEditorTodo from '../ListEditorTodo';
 
 class ListEditor extends Component {
 
@@ -50,14 +53,14 @@ class ListEditor extends Component {
 
     return (
       <div className="ListEditor">
-        <input type="text" className="ListEditor__TitleInput" onChange={onChangeListTitle} value={title} />
+        <div className="ListEditor__Actions">
+          <input type="text" className="ListEditor__TitleInput" onChange={onChangeListTitle} value={title} />
+          <Button onClick={onRemoveList}><Icon icon={cancel} alt="Remove" /></Button>
+        </div>
         <div>
           {NewTodoInput}
           {uncompleted.map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
           {completed.map(todo => <ListEditorTodo key={todo.id} {...todo} />)}
-        </div>
-        <div className="ListEditor__Actions">
-          <Button dark onClick={onRemoveList}>Remove</Button>
         </div>
       </div >
     );

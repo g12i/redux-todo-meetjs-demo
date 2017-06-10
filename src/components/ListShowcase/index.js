@@ -18,7 +18,7 @@ const ListShowcase = ({ lists, onClickAddNewList }) => (
       ))}
     </div>
     <div className="ListShowcase__ButtonContainer">
-      <Button onClick={onClickAddNewList}>Add new</Button>
+      <Button dark onClick={onClickAddNewList}>Add new</Button>
     </div>
   </div>
 );

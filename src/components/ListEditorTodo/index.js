@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { removeTodo, toggleTodoCompletion, changeTodoContent } from '../../reducers/todos';
 import Button from '../Button';
 import Checkbox from '../Checkbox';
-import Icon, { minus } from '../Icon';
+import Icon, { cancel } from '../Icon';
 
 const ListEditorTodo = ({
   completed,
@@ -17,7 +17,7 @@ const ListEditorTodo = ({
     <div className={`ListEditor__Todo ListEditor__Todo--${(completed ? 'Completed' : 'UnCompleted')}`} key={id}>
       <Checkbox checked={completed} onChange={onChangeTodoCompletionStatus} />
       <input className="ListEditor__TodoInput" type="text" value={content} onChange={onChangeTodoContent} />
-      <Button onClick={onClickRemoveTodo}><Icon icon={minus} alt="-" /></Button>
+      <Button onClick={onClickRemoveTodo}><Icon icon={cancel} alt="-" /></Button>
     </div>
   );
 
