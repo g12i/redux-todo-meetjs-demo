@@ -11,7 +11,7 @@ import Icon, { cancel } from '../Icon';
 import './style.css';
 
 
-class ListEditor extends Component {
+export class ListEditor extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,

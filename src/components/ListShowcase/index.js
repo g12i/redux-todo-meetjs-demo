@@ -6,7 +6,7 @@ import ListEditor from '../ListEditor';
 import { addList } from '../../reducers/lists';
 import './style.css';
 
-const ListShowcase = ({ lists, onClickAddNewList }) => (
+export const ListShowcase = ({ lists, onClickAddNewList }) => (
   <div className="ListShowcase">
     <div className="ListShowcase__List">
       {lists.map(list => (

@@ -6,7 +6,7 @@ import Button from '../Button';
 import Checkbox from '../Checkbox';
 import Icon, { cancel } from '../Icon';
 
-const ListEditorTodo = ({
+export const ListEditorTodo = ({
   completed,
   content,
   id,

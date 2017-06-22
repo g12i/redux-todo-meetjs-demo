@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Button from '../Button';
-import ListShowcase from '../ListShowcase';
+import { ListShowcase } from '../ListShowcase';
 import ListEditor from '../ListEditor';
 
 describe('<ListShowcase />', () => {
@@ -14,17 +14,12 @@ describe('<ListShowcase />', () => {
       {
         id: '#1',
         title: 'List #1',
-        todos: [],
       },
       {
         id: '#2',
         title: 'List #2',
-        todos: [
-          { id: '#1', content: 'Todo #1', completed: false }
-        ]
       },
     ],
-    onClickListItem: () => { },
     onClickAddNewList: () => { },
   };
 
