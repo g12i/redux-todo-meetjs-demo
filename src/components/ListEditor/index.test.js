@@ -4,6 +4,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Button from '../Button';
+import Icon from '../Icon';
 import ListEditor from '../ListEditor';
 import ListEditorTodo from '../ListEditorTodo';
 
@@ -14,9 +15,9 @@ describe('<ListEditor />', () => {
     title: 'FooBar',
     id: 'foo-id',
     todos: [
-      { id: '#1', content: 'Todo #1', completed: false },
-      { id: '#2', content: 'Todo #2', completed: true },
-      { id: '#3', content: 'Todo #3', completed: false },
+      { id: '#1', content: 'Todo #1', completed: false, order: 1 },
+      { id: '#2', content: 'Todo #2', completed: true, order: 2 },
+      { id: '#3', content: 'Todo #3', completed: false, order: 3 },
     ],
     onChangeListTitle: noop,
     onRemoveList: noop,
@@ -37,9 +38,10 @@ describe('<ListEditor />', () => {
       <ListEditor {...props} onChangeListTitle={onChangeListTitle} />
     );
     const input = wrapper.find('.ListEditor__TitleInput');
-    input.simulate('change', { target: { value: 'foo' } });
+    const fakeEvent = { target: { value: 'foo' } };
+    input.simulate('change', fakeEvent);
     expect(onChangeListTitle.callCount).to.be.equal(1);
-    expect(onChangeListTitle.calledWith('foo')).to.be.true;
+    expect(onChangeListTitle.calledWith(fakeEvent)).to.be.true;
   });
 
   it('renders sorted todos', () => {
@@ -57,11 +59,10 @@ describe('<ListEditor />', () => {
     const wrapper = shallow(
       <ListEditor {...props} onRemoveList={onRemoveList} />
     );
-    const $button = wrapper.find(Button).filterWhere(button => button.prop('children') === 'Remove');
+    const $button = wrapper.find(Button).filterWhere(button => button.find(Icon).length === 1);
     expect($button).to.have.lengthOf(1);
     $button.simulate('click');
     expect(onRemoveList.callCount).to.be.equal(1);
-    expect(onRemoveList.calledWith('foo-id')).to.be.true;
   });
 
 });

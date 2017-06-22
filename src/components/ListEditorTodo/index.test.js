@@ -52,9 +52,10 @@ describe('<ListEditorTodo />', () => {
       <ListEditorTodo {...props} onChangeTodoContent={onChangeTodoContent} />
     );
     const $input = wrapper.find('input[type="text"]');
-    $input.simulate('change', { target: { value: 'new content' } });
+    const fakeEvent = { target: { value: 'new content' } };
+    $input.simulate('change', fakeEvent);
     expect(onChangeTodoContent.callCount).to.be.equal(1);
-    expect(onChangeTodoContent.calledWithMatch('id', 'new content')).to.be.true;
+    expect(onChangeTodoContent.calledWith(fakeEvent)).to.be.true;
   });
 
   it('calls #onChangeTodoCompletionStatus when input is changed', () => {
@@ -65,7 +66,6 @@ describe('<ListEditorTodo />', () => {
     const $input = wrapper.find('input[type="checkbox"]');
     $input.simulate('change');
     expect(onChangeTodoCompletionStatus.callCount).to.be.equal(1);
-    expect(onChangeTodoCompletionStatus.calledWithMatch('id')).to.be.true;
   });
 
   it('set renders remove Button', () => {
@@ -77,7 +77,6 @@ describe('<ListEditorTodo />', () => {
     expect($button).to.have.lengthOf(1);
     $button.simulate('click');
     expect(onClickRemoveTodo.callCount).to.be.equal(1);
-    expect(onClickRemoveTodo.calledWithMatch('id')).to.be.true;
   });
 
 });
